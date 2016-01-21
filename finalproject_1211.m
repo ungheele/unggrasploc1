@@ -212,14 +212,6 @@ principalAxisTesting(i,:) = principalAxes(filteredNeighborhoodsIndices(gapFilter
 neighborhoodCentroidTesting(i,:)=neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(i)), 1:3);
 
 
-% save(['neighborhoodTesting_' num2str(i) '.mat'],'neighborhodTesting');
-
-% neighborhoodTesting_2 = neighborhoods.(['neighborhood' num2str(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)))]);
-% normalTesting_2 = normals(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)), :);
-% principalAxisTesting_2 = principalAxes(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)), :);
-% principalDirection_2= principalDirections(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)), :);
-% neighborhoodCentroidTesting_2 = neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)), :);
-% 
 
 
 
@@ -242,60 +234,6 @@ neighborhoodTesting.(['neighborhoodTesting' num2str(index)])
 save('principalAxisTesting.mat','principalAxisTesting');
 save('normalTesting.mat','normalTesting');
 save('neighborhoodCentroidTesting.mat','neighborhoodCentroidTesting');
-
-
-
-% neighborhoodTesting_2 = neighborhoods.(['neighborhood' num2str(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)))]);
-% normalTesting_2 = normals(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)), :);
-% principalAxisTesting_2 = principalAxes(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)), :);
-% principalDirection_2= principalDirections(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)), :);
-% neighborhoodCentroidTesting_2 = neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(2)), :);
-% 
-% save('neighboorhoodTesting_2.mat','neighborhoodTesting_2');
-% save('principalAxisTesting_2.mat','principalAxisTesting_2');
-% save('normalTesting_2.mat','normalTesting_2');
-% 
-% neighborhoodTesting_3 = neighborhoods.(['neighborhood' num2str(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(3)))]);
-% normalTesting_3 = normals(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(3)), :);
-% principalAxisTesting_3 = principalAxes(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(3)), :);
-% neighborhoodCentroidTesting_3 = neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(3)), :);
-% principalDirection_3= principalDirections(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(3)), :);
-% 
-% save('neighboorhoodTesting_3.mat','neighborhoodTesting_3');
-% save('principalAxisTesting_3.mat','principalAxisTesting_3');
-% save('normalTesting_3.mat','normalTesting_3');
-% 
-% neighborhoodTesting_4 = neighborhoods.(['neighborhood' num2str(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(4)))]);
-% normalTesting_4 = normals(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(4)), :);
-% principalAxisTesting_4 = principalAxes(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(4)), :);
-% neighborhoodCentroidTesting_4 = neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(4)), :);
-% principalDirection_4= principalDirections(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(4)), :);
-% 
-% save('neighboorhoodTesting_4.mat','neighborhoodTesting_4');
-% save('principalAxisTesting_4.mat','principalAxisTesting_4');
-% save('normalTesting_4.mat','normalTesting_4');
-% 
-% neighborhoodTesting_5 = neighborhoods.(['neighborhood' num2str(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(5)))]);
-% normalTesting_5 = normals(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(5)), :);
-% principalAxisTesting_5 = principalAxes(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(5)), :);
-% neighborhoodCentroidTesting_5 = neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(5)), :);
-% principalDirection_5= principalDirections(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(5)), :);
-% 
-% save('neighboorhoodTesting_5.mat','neighborhoodTesting_5');
-% save('principalAxisTesting_5.mat','principalAxisTesting_5');
-% save('normalTesting_5.mat','normalTesting_5');
-% 
-% neighborhoodTesting_6 = neighborhoods.(['neighborhood' num2str(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(6)))]);
-% normalTesting_6 = normals(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(6)), :);
-% principalAxisTesting_6 = principalAxes(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(6)), :);
-% neighborhoodCentroidTesting_6 = neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(6)), :);
-% principalDirection_6= principalDirections(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(6)), :);
-% 
-% save('neighboorhoodTesting_6.mat','neighborhoodTesting_6');
-% save('principalAxisTesting_6.mat','principalAxisTesting_6');
-% save('normalTesting_6.mat','normalTesting_6');
-
-
 
 
 quiver3(neighborhoodCentroid(1, 1), neighborhoodCentroid(1, 2), neighborhoodCentroid(1, 3), normalTesting(1,1), normalTesting(1,2), normalTesting(1,3), 'b');
