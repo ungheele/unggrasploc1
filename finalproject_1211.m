@@ -13,8 +13,8 @@ pointClouds = zeros(numberOfPointsRaw, 3);
 
 numberOfPoints = 0;
 % for i = 1 : numberOfPointsRaw
-% for i = 80000: numberOfPointsRaw-90000
-for i = 1: numberOfPointsRaw
+% for i = 90000: numberOfPointsRaw
+for i = 90000: numberOfPointsRaw-100000
     
     if isfinite(pointCloudsRaw(i, 1)) && isfinite(pointCloudsRaw(i, 2)) && isfinite(pointCloudsRaw(i, 3))
 
@@ -125,8 +125,9 @@ for i = 1 : numberOfNeighborhoodCentroids
    
     if curvatures(i) > 2
 %       if curvatures(i) > 0  
+%     if curvatures(i) > 2.2
         numberOfFilteredNeighborhoods = numberOfFilteredNeighborhoods + 1;
-        
+  
         filteredNeighborhoodsIndices(numberOfFilteredNeighborhoods) = i;
         
     end
@@ -212,32 +213,43 @@ principalAxisTesting(i,:) = principalAxes(filteredNeighborhoodsIndices(gapFilter
 neighborhoodCentroidTesting(i,:)=neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(i)), 1:3);
 
 
-
-
-
-
 end
 
 mini=zeros(numberOfgap,3);
+
 for i=1:numberOfgap
     l = ['neighborhoodTesting' num2str(i)]; 
     [minZ,indexMin]=min(abs(neighborhoodTesting.(l)(:,3)));
     mini(i,:)=neighborhoodTesting.(l)(indexMin,:);
     
 end
+
 [finalMini,index]=min(mini(:,3));
 finalMini_neighborhood=mini(index,:);
-neighborhoodTesting.(['neighborhoodTesting' num2str(index)])
+neighborhoodTesting.(['neighborhoodTesting' num2str(index)]);
 
 
+
+    
+[neighborhoodCentroidTesting_min,index_min]=min(neighborhoodCentroidTesting(:,3));
+
+neighborhoodCentroidTesting(index_min,:)
+principalAxisTesting(index_min,:)
+normalTesting(index_min,:)
+
+quiver3(neighborhoodCentroidTesting(index_min, 1), neighborhoodCentroidTesting(index_min, 2), neighborhoodCentroidTesting(index_min, 3), normalTesting(5,1), normalTesting(5,2), normalTesting(5,3), 'b');
+quiver3(neighborhoodCentroidTesting(index_min, 1), neighborhoodCentroidTesting(index_min, 2), neighborhoodCentroidTesting(index_min, 3), principalAxisTesting(index_min,1), principalAxisTesting(index_min,2), principalAxisTesting(index_min,3),'y');
+%  quiver3(neighborHood(indexMedianCurvature, 1), neighborHood(indexMedianCurvature, 2), neighborHood(indexMedianCurvature, 3), principalDirectionDisplay(1), principalDirectionDisplay(2), principalDirectionDisplay(3), 'g');
+hold on;
 
 save('principalAxisTesting.mat','principalAxisTesting');
 save('normalTesting.mat','normalTesting');
 save('neighborhoodCentroidTesting.mat','neighborhoodCentroidTesting');
 
 
-quiver3(neighborhoodCentroid(1, 1), neighborhoodCentroid(1, 2), neighborhoodCentroid(1, 3), normalTesting(1,1), normalTesting(1,2), normalTesting(1,3), 'b');
-quiver3(neighborhoodCentroid(1, 1), neighborhoodCentroid(1, 2), neighborhoodCentroid(1, 3), principalAxisTesting(1,1), principalAxisTesting(1,2), principalAxisTesting(1,3),'y');
-%  quiver3(neighborHood(indexMedianCurvature, 1), neighborHood(indexMedianCurvature, 2), neighborHood(indexMedianCurvature, 3), principalDirectionDisplay(1), principalDirectionDisplay(2), principalDirectionDisplay(3), 'g');
-hold on;
+
+% quiver3(neighborhoodCentroid(1, 1), neighborhoodCentroid(1, 2), neighborhoodCentroid(1, 3), normalTesting(1,1), normalTesting(1,2), normalTesting(1,3), 'b');
+% quiver3(neighborhoodCentroid(1, 1), neighborhoodCentroid(1, 2), neighborhoodCentroid(1, 3), principalAxisTesting(1,1), principalAxisTesting(1,2), principalAxisTesting(1,3),'y');
+% %  quiver3(neighborHood(indexMedianCurvature, 1), neighborHood(indexMedianCurvature, 2), neighborHood(indexMedianCurvature, 3), principalDirectionDisplay(1), principalDirectionDisplay(2), principalDirectionDisplay(3), 'g');
+% hold on;
 

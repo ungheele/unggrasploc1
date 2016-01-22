@@ -24,8 +24,8 @@ function [circleCenterX, circleCenterY, circleRadius, shellCentroid, shellExtent
     rotationPointsBasis = rotationMatrix' * rotationPointsBasis';
     rotationPointsBasis = rotationPointsBasis';
      
-    plot3(rotationPointsBasis(:, 1), rotationPointsBasis(:, 2),rotationPointsBasis(:, 3), 'c.');
-    hold on;
+%     plot3(rotationPointsBasis(:, 1), rotationPointsBasis(:, 2),rotationPointsBasis(:, 3), 'c.');
+%     hold on;
 
     Q = zeros(3, 3);
     c = zeros(3, 1);
