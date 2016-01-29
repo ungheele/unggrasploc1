@@ -69,7 +69,9 @@ function parameterVector = fitQuadric(neighborHood, numberOfNeighborhoodPoints)
              ];
         
         N = N + l3 * l3';
-
+%         lambda = 2*pi/4;
+       lambda = 1.05;  % weighted factor?
+        N = N*lambda;
     end
 
     [coefficientEigenVectors, coefficientEigenValues] = eig(M, N);
@@ -77,6 +79,8 @@ function parameterVector = fitQuadric(neighborHood, numberOfNeighborhoodPoints)
     coefficientEigenValues = diag(coefficientEigenValues);
     coefficientEigenValues = coefficientEigenValues';
 
+%     coefficientEigenValues = lambda * coefficientEigenValues;
+        
     [~, indexMinCoefficientEigenValue] = min(coefficientEigenValues);
 
     parameterVector = coefficientEigenVectors(:, indexMinCoefficientEigenValue);

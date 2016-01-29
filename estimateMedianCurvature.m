@@ -66,6 +66,14 @@ function [curvature, normal, principalAxis,principalDirection] = estimateMedianC
     normalY = 2 * parameterVector(2) * neighborHood(indexMedianCurvature, 2) + parameterVector(4) * neighborHood(indexMedianCurvature, 1) + parameterVector(5) * neighborHood(indexMedianCurvature, 3) + parameterVector(8);
     normalZ = 2 * parameterVector(3) * neighborHood(indexMedianCurvature, 3) + parameterVector(5) * neighborHood(indexMedianCurvature, 2) + parameterVector(6) * neighborHood(indexMedianCurvature, 1) + parameterVector(9);
 
+%     normalpcd = PCD(neighborHood);
+%     normalX = normalpcd(indexMedianCurvature);
+%     normalY = normalpcd(indexMedianCurvature);
+%     normalZ = normalpcd(indexMedianCurvature);
+    
+    
+    
+    
     normal = [
             normalX;
             normalY;
