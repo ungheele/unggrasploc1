@@ -3,7 +3,7 @@ clear all
 
 %% extract data from pointcloud
 
-pointCloudsRaw = load('eight_objects.pcd');
+pointCloudsRaw = load('now.pcd');
 
 numberOfPointsRaw = length(pointCloudsRaw);
 
@@ -220,6 +220,7 @@ neighborhoodTesting=struct();
 normalTesting=zeros(numberOfgap,3);
 principalAxisTesting=zeros(numberOfgap,3);
 neighborhoodCentroidTesting=zeros(numberOfgap,3);
+normalpcd=zeros(numberOfgap,3);
 % normalpcd = struct();
 % normalpcdCentroid=zeros(numberOfgap,3);
 for i = 1:numberOfgap
@@ -231,7 +232,7 @@ normalTesting(i,:) = normals(filteredNeighborhoodsIndices(gapFilteredNeighborhoo
 principalAxisTesting(i,:) = principalAxes(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(i)), 1:3);
 % principalDirection_1= principalDirections(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(i)), :);
 neighborhoodCentroidTesting(i,:)=neighborhoodCentroids(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(i)), 1:3);
-normalpcd = PCD(neighborhoodTesting.(l));
+normalpcd(i,:) = PCD(neighborhoodTesting.(l));
 
 % normalpcdCentroid(i,:) = normalpcd(filteredNeighborhoodsIndices(gapFilteredNeighborhoodsIndices(i)), 1:3);
 
@@ -270,6 +271,7 @@ normalNumber = length(neighborhoodCentroidTesting(:,1));
 for k = 1 : normalNumber 
 quiver3(neighborhoodCentroidTesting(k, 1), neighborhoodCentroidTesting(k, 2), neighborhoodCentroidTesting(k, 3), normalTesting(k,1), normalTesting(k,2), normalTesting(k,3), 'b');
 hold on;
+% quiver3(neighborhoodCentroidTesting(k, 1), neighborhoodCentroidTesting(k, 2), neighborhoodCentroidTesting(k, 3), normalpcd(k,1), normalpcd(k,2), normalpcd(k,3), 'c');
 end
 
 % quiver3(neighborhoodCentroidTesting(index_min, 1), neighborhoodCentroidTesting(index_min, 2), neighborhoodCentroidTesting(index_min, 3), normalTesting(index_min,1), normalTesting(index_min,2), normalTesting(index_min,3), 'b');

@@ -1,4 +1,4 @@
-function [ eigenvector] = PCD(ordereddata)
+function [ normal ] = PCD(ordereddata)
 
 tic;
 
@@ -116,4 +116,5 @@ i = N;
     y = [ordereddata(i,2),(ordereddata(i,2) + eigenvector(i,2))];
     z = [ordereddata(i,3),(ordereddata(i,3) + eigenvector(i,3))];
     line(x,y,z, 'Color','r');
+normal = eigenvector(i,:);    
 end
