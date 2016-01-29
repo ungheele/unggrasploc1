@@ -3,7 +3,7 @@ clear all
 
 %% extract data from pointcloud
 
-pointCloudsRaw = load('now.pcd');
+pointCloudsRaw = load('eight_objects.pcd');
 
 numberOfPointsRaw = length(pointCloudsRaw);
 
@@ -275,7 +275,7 @@ end
 % quiver3(neighborhoodCentroidTesting(index_min, 1), neighborhoodCentroidTesting(index_min, 2), neighborhoodCentroidTesting(index_min, 3), normalTesting(index_min,1), normalTesting(index_min,2), normalTesting(index_min,3), 'b');
 quiver3(neighborhoodCentroidTesting(index_min, 1), neighborhoodCentroidTesting(index_min, 2), neighborhoodCentroidTesting(index_min, 3), principalAxisTesting(index_min,1), principalAxisTesting(index_min,2), principalAxisTesting(index_min,3),'y');
 %  quiver3(neighborHood(indexMedianCurvature, 1), neighborHood(indexMedianCurvature, 2), neighborHood(indexMedianCurvature, 3), principalDirectionDisplay(1), principalDirectionDisplay(2), principalDirectionDisplay(3), 'g');
-quiver3(neighborhoodCentroidTesting(index_min, 1), neighborhoodCentroidTesting(index_min, 2), neighborhoodCentroidTesting(index_min, 3), normalTesting(index_min,1), normalTesting(index_min,2), normalTesting(index_min,3), 'k');
+quiver3(neighborhoodCentroidTesting(index_min, 1), neighborhoodCentroidTesting(index_min, 2), neighborhoodCentroidTesting(index_min, 3), normalTesting(index_min,1), normalTesting(index_min,2), normalTesting(index_min,3), 'c');
 hold on;
 
 
